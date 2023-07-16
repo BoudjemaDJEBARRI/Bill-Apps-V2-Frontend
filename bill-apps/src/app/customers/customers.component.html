@@ -1,0 +1,23 @@
+<div class="container">
+      <table class="table" *ngIf="customers">
+             <thead>
+                  <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                  </tr>
+            </thead>
+
+            <tbody>
+                  <!-- ._embedded.products : voir dans: http://localhost:9999/inventory-service/products, car on utilise Spring Data rest  -->
+                  <tr *ngFor="let c of customers._embedded.customers">
+                        <td>{{c.id}}</td>
+                        <td>{{c.name}}</td>
+                        <td>{{c.email}}</td>
+                        <td>
+                              <button class="btn btn-success" (click)="getOrders(c)">Orders</button>
+                        </td>
+                  </tr>
+            </tbody>
+      </table>
+</div> 
